@@ -28,8 +28,21 @@ dependencies {
 // Additional config for Crio workspace
 buildDir = '/tmp/external_build'
 
+
+task startScript(type:Exec) {
+    commandLine './selenium-run.sh'
+}
+
+run.dependsOn startScript
+
+test.dependsOn startScript
+
 test {
     // TODO: Add configuration to use TestNG instead of JUnit
+     useTestNG() {
+        // suites 'src/test/java/testng.xml'
+    }
+
 
     // Configurations to print test summary
     afterSuite { desc, result ->
@@ -48,4 +61,5 @@ test {
 
 
 mainClassName = 'com.crio.QKART_TestNG.App'
+
 
