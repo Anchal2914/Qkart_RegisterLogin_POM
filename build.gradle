@@ -40,7 +40,7 @@ test.dependsOn startScript
 test {
     // TODO: Add configuration to use TestNG instead of JUnit
      useTestNG() {
-        // suites 'src/test/java/testng.xml'
+        suites 'src/test/java/testng.xml'
     }
 
 
